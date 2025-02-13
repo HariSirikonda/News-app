@@ -13,7 +13,7 @@ function Homepage() {
     const SearchClick = async () => {
         setLoading(true);
         console.log("Search for :", query)
-        const url = `https://newsapi.org/v2/everything?q=${query}&from=2025-01-10&sortBy=publishedAt&apiKey=2411e323f4e144b08e9690253cba7b85`;
+        const url = `https://api.mediastack.com/v1/news?access_key=f96538fca203b0b69a67517e28b08f27&keywords=${query}&countries=us,gb,de`;
         const response = await fetch(url);
         const data = await response.json();
         if (!response.ok) {

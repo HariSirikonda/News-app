@@ -7,7 +7,7 @@ function SearchResults({ loading, searchResults }) {
                 <p className="text-center">Loading...</p>
             ) : (
                 <div>
-                    {searchResults.articles.map((article, index) => (
+                    {searchResults.data.map((article, index) => (
                         <div className="border mb-2 p-2 shadow-sm">
                             <h4>{article.title}</h4>
                         </div>
