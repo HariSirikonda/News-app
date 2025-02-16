@@ -4,11 +4,7 @@ import SearchResults from '../components/SearchResults';
 function Homepage() {
     const [query, steQuery] = useState("");
     const [loading, setLoading] = useState(false);
-    const [searchResults, setSearchResults] = useState({
-        status: "",
-        totalResults: 0,
-        articles: [],
-    });
+    const [searchResults, setSearchResults] = useState([]);
 
     const SearchClick = async () => {
         setLoading(true);
@@ -21,7 +17,8 @@ function Homepage() {
             setLoading(false);
             return;
         }
-        setSearchResults(data);
+        setSearchResults(data.data || []);
+        console.log(searchResults)
         setLoading(false);
     };
 
