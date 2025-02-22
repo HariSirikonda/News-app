@@ -28,3 +28,7 @@
   /* Pressed effect */
   box-shadow: none;
 }
+
+.news-card {
+  width: 700px;
+}
