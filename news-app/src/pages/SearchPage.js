@@ -5,19 +5,20 @@ import { useSearchParams } from "react-router-dom";
 
 function SearchPage() {
     const [searchParams] = useSearchParams();
-    const keyword = searchParams.get("key");
+    const query = searchParams.get("key");
+    const category = searchParams.get("cat");
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
         const fetchnews = async () => {
-            const url = `https://newsapi.org/v2/everything?q=${keyword}&from=2025-01-23&sortBy=publishedAt&apiKey=2411e323f4e144b08e9690253cba7b85`
+            const url = `https://newsapi.org/v2/everything?q=${query}&from=2025-02-07&sortBy=publishedAt&apiKey=2411e323f4e144b08e9690253cba7b85`
             const responce = await fetch(url);
             const data = await responce.json();
             setArticles(data.articles);
             console.log(articles);
         }
-        fetchnews();
-    }, [keyword])
+        if (query) fetchnews();
+    }, [query])
 
     return (
         <div>
@@ -28,20 +29,25 @@ function SearchPage() {
                         <div className="col-md-6 mb-1" key={article.url}>
                             <div className="d-flex m-1 border rounded shadow-sm p-1">
                                 <div className="p-1">
-                                    <img className="rounded" src={article.urlToImage != null ? article.urlToImage : NotFound} alt="show me" style={{ width: "256px", height: "170px" }}></img>
+                                    {article.urlToImage &&
+                                        <img
+                                            className="rounded"
+                                            src={article?.urlToImage || NotFound}
+                                            alt="Show me"
+                                            style={{ width: "256px", height: "170px" }}
+                                        />
+                                    }
                                 </div>
                                 <div className="p-1">
-                                    <h6>{article.title}</h6>
+                                    <h5>{article.title}</h5>
                                     <p>
-                                        {article.description.length > 100
+                                        {article.description && article.description.length > 100
                                             ? article.description.slice(0, 100) + "..."
                                             : article.description}
                                     </p>
-
                                 </div>
                             </div>
                         </div>
-
                     ))}
                 </div>
             </div>
