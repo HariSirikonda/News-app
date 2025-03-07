@@ -32,15 +32,15 @@ function Navbar() {
 
     return (
         <div>
-            <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-                <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <Link class="navbar-brand" to="/">News app</Link>
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
+            <nav className="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+                <div className="container-fluid">
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <Link className="navbar-brand" to="/">Swift News</Link>
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>
-                            <li class="nav-item">
+                            <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to="/about">About</Link>
                             </li>
                         </ul>
