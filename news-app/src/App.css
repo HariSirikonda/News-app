@@ -32,3 +32,13 @@
 .news-card {
   width: 700px;
 }
+
+.title-link {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.title-link:hover {
+  color: lightskyblue;
+}

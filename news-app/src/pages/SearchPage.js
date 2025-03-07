@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Categories from "../components/Categories";
 import NotFound from '../assets/not-found.png';
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 function SearchPage() {
     const [searchParams] = useSearchParams();
@@ -39,7 +39,13 @@ function SearchPage() {
                                     }
                                 </div>
                                 <div className="p-1">
-                                    <h5>{article.title}</h5>
+                                    <Link
+                                        to={article.url}
+                                        target="_blank"
+                                        className="title-link text-decoration-none text-dark"
+                                    >
+                                        <h5>{article.title}</h5>
+                                    </Link>
                                     <p>
                                         {article.description && article.description.length > 100
                                             ? article.description.slice(0, 100) + "..."
